@@ -73,6 +73,8 @@
         <item>Tandem</item>
         <item>Tracking</item>
         <item>Wingsuit</item>
+        <item>Static-Line</item>
+        <item>AFF</item>
     </string-array>
 
     <string name="default_log_auto_fill">true</string>
