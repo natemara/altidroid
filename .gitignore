@@ -2,6 +2,6 @@ release.keystore
 local.properties
 build
 .gradle
-*/.idea/workspace.xml
-*/.idea/tasks.xml
-*/.idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/libraries/
