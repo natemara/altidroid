@@ -1,4 +1,9 @@
-altidroid
+Altidroid
 =========
 
-Altidroid - skydiving audible altimeter for Android
+Skydiving altimiter for Android.
+
+- Features
+	- Visual altimeter
+	- Audible altimeter
+	- Automatic jump logging
