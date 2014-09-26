@@ -23,7 +23,7 @@
                 android:authorities="org.openskydive.altidroid"
                 android:exported="false" />
 
-        <provider android:name="org.openskydive.altidroid.log.LogProvider"
+        <provider android:name=".log.DatabaseLogProvider"
                 android:authorities="org.openskydive.altidroid.log"
                 android:exported="false" />
 

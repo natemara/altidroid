@@ -27,7 +27,7 @@ import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
 import android.text.TextUtils;
 
-public class LogProvider extends ContentProvider {
+public class DatabaseLogProvider extends ContentProvider {
     public static final String AUTHORITY = "org.openskydive.altidroid.log";
 
     public static final Uri COMPLETIONS_URI =

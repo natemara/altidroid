@@ -23,10 +23,10 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.openskydive.altidroid.R;
+import org.openskydive.altidroid.log.DatabaseLogProvider;
 import org.openskydive.altidroid.log.LogEntry;
 import org.openskydive.altidroid.log.LogProtos;
 import org.openskydive.altidroid.log.LogProtos.Entry.Builder;
-import org.openskydive.altidroid.log.LogProvider;
 import org.openskydive.altidroid.util.Units;
 
 import android.app.ActionBar;
@@ -64,7 +64,7 @@ public class JumpInfoEdit extends Activity implements OnClickListener {
     private ArrayAdapter<String> getCompletions(String field, int arrayId) {
         // SELECT field FROM log WHERE length(field) > 0 GROUP BY field ORDER BY
         // field;
-        Cursor cursor = getContentResolver().query(LogProvider.COMPLETIONS_URI,
+        Cursor cursor = getContentResolver().query(DatabaseLogProvider.COMPLETIONS_URI,
                 new String[] { field }, "length(" + field + ") > 0", null,
                 field);
         if (cursor == null) {
