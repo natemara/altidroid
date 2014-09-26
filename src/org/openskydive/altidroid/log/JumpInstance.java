@@ -18,53 +18,65 @@
 package org.openskydive.altidroid.log;
 
 public class JumpInstance {
-    /**
-     * Ground level in millimeters. Valid in all state types except UNKNOWN.
-     */
-    private int mGroundLevel;
+    public static final String ID = "_id";
+    public static final String NUMBER = "number";
+    public static final String DATE = "date";
+    public static final String EXIT_ALTITUDE = "exit_altitude";
+    public static final String DEPLOY_ALTITUDE = "deploy_altitude";
+    public static final String FREEFALL_TIME = "freefall_time";
+    public static final String COMMENTS = "comments";
+    public static final String DROPZONE = "dropzone";
+    public static final String AIRCRAFT = "aircraft";
+    public static final String JUMPTYPE = "jumptype";
+    public static final String EQUIPMENT = "equipment";
 
-    /**
-     * Take off time stamp. Only valid in CLIMP, FREEFALL and CANOPY states.
-     */
-    private long mTakeOffTime;
+    private int id;
+    private int number;
+    private int date;
+    private int exitAltitude;
+    private int deployAltitude;
+    private int freefallTime;
+    private String comments;
+    private String dropzone;
+    private String aircraft;
+    private String jumpType;
+    private String equipment;
 
-    /**
-     * Exit altitude. Only valid in FREEFALL and CANOPY states.
-     */
-    private int mExitAltitude;
+    public JumpInstance() {
 
-    /**
-     * Exit time. Only valid in FREEFALL and CANOPY states.
-     */
-    private long mExitTime;
+    }
 
-    /**
-     * Deploy time.
-     */
-    private long mDeployTime;
+    public static String xmlTag(String tagName, String tagData, int indentLevel) {
+        String xml = "";
 
-    /**
-     * Canopy deploy altitude. Valid only in the CANOPY state.
-     */
-    private int mDeployAltitude;
+        for (int i = 0; i < indentLevel; i++) {
+            xml += "\t";
+        }
+        xml += String.format("<%s>%s</%s>\n", tagName, tagData, tagName);
 
-    public JumpInstance(int groundLevel, int takeOffTime, int exitAltitude, long exitTime, long deployTime, int deployAltitude) {
-        mGroundLevel = groundLevel;
-        mTakeOffTime = takeOffTime;
-        mExitAltitude = exitAltitude;
-        mExitTime = exitTime;
-        mDeployTime = deployTime;
-        mDeployAltitude = deployAltitude;
+        return xml;
+    }
+
+    public static String xmlTag(String tagName, int tagData, int indentLevel) {
+        return xmlTag(tagName, "" + tagData, indentLevel);
     }
 
     public String toXML() {
         String xml = "<jump>\n";
-        xml += String.format("\t<groundLevel>%d</groundLevel>\n", mGroundLevel);
-        xml += String.format("\t<takeOffTime>%d</takeOffTime>\n", mTakeOffTime);
-        xml += String.format("\t<exitAltitude>%d</exitAltitude>\n", mExitAltitude);
-        xml += String.format("\t<exitTime>%d</exitTime>\n", mExitTime);
-        xml += String.format("\t<deployTime>%d</deployTime>\n", mDeployTime);
-        xml += String.format("\t<deployAltitude>%d</deployAltitude>\n", mDeployAltitude);
+
+        xml += xmlTag(ID, id, 1);
+        xml += xmlTag(NUMBER, number, 1);
+        xml += xmlTag(DATE, date, 1);
+        xml += xmlTag(EXIT_ALTITUDE, exitAltitude, 1);
+        xml += xmlTag(DEPLOY_ALTITUDE, deployAltitude, 1);
+        xml += xmlTag(FREEFALL_TIME, freefallTime, 1);
+        xml += xmlTag(COMMENTS, comments, 1);
+        xml += xmlTag(DROPZONE, dropzone, 1);
+        xml += xmlTag(AIRCRAFT, aircraft, 1);
+        xml += xmlTag(JUMPTYPE, jumpType, 1);
+        xml += xmlTag(EQUIPMENT, equipment, 1);
+
+        xml += "</jump>\n";
 
         return xml;
     }
