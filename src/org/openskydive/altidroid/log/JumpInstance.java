@@ -42,8 +42,18 @@ public class JumpInstance {
     private String jumpType;
     private String equipment;
 
-    public JumpInstance() {
-
+    public JumpInstance(int id, int number, int date, int exitAltitude, int deployAltitude, int freefallTime, String comments, String dropzone, String aircraft, String jumpType, String equipment) {
+        this.id = id;
+        this.number = number;
+        this.date = date;
+        this.exitAltitude = exitAltitude;
+        this.deployAltitude = deployAltitude;
+        this.freefallTime = freefallTime;
+        this.comments = comments;
+        this.dropzone = dropzone;
+        this.aircraft = aircraft;
+        this.jumpType = jumpType;
+        this.equipment = equipment;
     }
 
     public static String xmlTag(String tagName, String tagData, int indentLevel) {
