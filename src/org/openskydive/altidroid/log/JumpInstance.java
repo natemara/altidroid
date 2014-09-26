@@ -18,4 +18,54 @@
 package org.openskydive.altidroid.log;
 
 public class JumpInstance {
+    /**
+     * Ground level in millimeters. Valid in all state types except UNKNOWN.
+     */
+    private int mGroundLevel;
+
+    /**
+     * Take off time stamp. Only valid in CLIMP, FREEFALL and CANOPY states.
+     */
+    private long mTakeOffTime;
+
+    /**
+     * Exit altitude. Only valid in FREEFALL and CANOPY states.
+     */
+    private int mExitAltitude;
+
+    /**
+     * Exit time. Only valid in FREEFALL and CANOPY states.
+     */
+    private long mExitTime;
+
+    /**
+     * Deploy time.
+     */
+    private long mDeployTime;
+
+    /**
+     * Canopy deploy altitude. Valid only in the CANOPY state.
+     */
+    private int mDeployAltitude;
+
+    public JumpInstance(int groundLevel, int takeOffTime, int exitAltitude, long exitTime, long deployTime, int deployAltitude) {
+        mGroundLevel = groundLevel;
+        mTakeOffTime = takeOffTime;
+        mExitAltitude = exitAltitude;
+        mExitTime = exitTime;
+        mDeployTime = deployTime;
+        mDeployAltitude = deployAltitude;
+    }
+
+    public String toXML() {
+        String xml = "<jump>\n";
+        xml += String.format("\t<groundLevel>%d</groundLevel>\n", mGroundLevel);
+        xml += String.format("\t<takeOffTime>%d</takeOffTime>\n", mTakeOffTime);
+        xml += String.format("\t<exitAltitude>%d</exitAltitude>\n", mExitAltitude);
+        xml += String.format("\t<exitTime>%d</exitTime>\n", mExitTime);
+        xml += String.format("\t<deployTime>%d</deployTime>\n", mDeployTime);
+        xml += String.format("\t<deployAltitude>%d</deployAltitude>\n", mDeployAltitude);
+
+        return xml;
+    }
 }
